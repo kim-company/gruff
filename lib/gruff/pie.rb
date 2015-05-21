@@ -32,7 +32,7 @@ class Gruff::Pie < Gruff::Base
     @text_offset_percentage = DEFAULT_TEXT_OFFSET_PERCENTAGE
   end
 
-  def draw
+  def draw(left_offset = 0)
     @hide_line_markers = true
 
     super
@@ -41,10 +41,12 @@ class Gruff::Pie < Gruff::Base
 
     diameter = @graph_height
     radius = ([@graph_width, @graph_height].min / 2.0) * 0.8
-    center_x = @graph_left + (@graph_width / 2.0) + 100
+    center_x = @graph_left + (@graph_width / 2.0) + left_offset
     center_y = @graph_top + (@graph_height / 2.0) - 10 # Move graph up a bit
     total_sum = sums_for_pie()
     prev_degrees = @zero_degree
+
+
 
     # Use full data since we can easily calculate percentages
     data = (@sort ? @data.sort{ |a, b| a[DATA_VALUES_INDEX].first <=> b[DATA_VALUES_INDEX].first } : @data)

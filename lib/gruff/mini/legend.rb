@@ -23,6 +23,9 @@ module Gruff
         when :right then
           @rows = [@rows, legend_height].max
           @columns += calculate_legend_width + @left_margin
+        when :left then
+          @rows = [@rows, legend_height].max
+          @columns += calculate_legend_width + @left_margin
         else
           @rows += @data.length * calculate_caps_height(scale_fontsize(@legend_font_size)) * 1.7
         end
@@ -56,6 +59,9 @@ module Gruff
         case @legend_position
         when :right then
           current_x_offset = @original_columns + @left_margin
+          current_y_offset = @top_margin + legend_top_margin
+        when :left then
+          current_x_offset = @legend_left_margin
           current_y_offset = @top_margin + legend_top_margin
         else
           current_x_offset = @legend_left_margin

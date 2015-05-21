@@ -61,7 +61,7 @@ module Gruff
           current_x_offset = @original_columns + @left_margin
           current_y_offset = @top_margin + legend_top_margin
         when :left then
-          current_x_offset = @legend_left_margin
+          current_x_offset = 0 #@legend_left_margin
           current_y_offset = @top_margin + legend_top_margin
         else
           current_x_offset = @legend_left_margin

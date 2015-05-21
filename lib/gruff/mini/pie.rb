@@ -19,9 +19,7 @@ module Gruff
 
       def draw
         expand_canvas_for_vertical_legend
-
         super(calculate_legend_width)
-
         draw_vertical_legend
 
         @d.draw(@base_image)

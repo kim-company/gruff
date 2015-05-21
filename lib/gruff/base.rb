@@ -439,7 +439,7 @@ module Gruff
     # Overridden by subclasses to do the actual plotting of the graph.
     #
     # Subclasses should start by calling super() for this method.
-    def draw
+    def draw(*)
       # Maybe should be done in one of the following functions for more granularity.
       unless @has_data
         draw_no_data
